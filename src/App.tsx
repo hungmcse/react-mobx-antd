@@ -1,5 +1,5 @@
-import React, {Suspense} from 'react';
-import defaultStyle from './App.module.scss';
+import React, {Suspense} from "react";
+import defaultStyle from "./App.module.scss";
 import {MasterPageLayout} from "./layout/masterpage/masterpage.layout";
 import {Redirect, Route, Switch} from "react-router";
 import {ROUTE} from "./route";

@@ -33,6 +33,7 @@
     "no-unused-variable": true,
     "indent": [
       true, "tabs"
-    ]
+    ],
+    "quotemark": [true, "double"]
   }
 }

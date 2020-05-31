@@ -1,7 +1,7 @@
 import {Layout, Menu} from "antd";
 import * as React from "react";
 import defaultStyles from "./masterpage.module.scss"
-import {DesktopOutlined, PieChartOutlined,} from '@ant-design/icons';
+import {DesktopOutlined, PieChartOutlined,} from "@ant-design/icons";
 import {ROUTE} from "../../route";
 import {HistoryService} from "../../core-services/history.service";
 import {Container} from "typedi";
