@@ -8,26 +8,27 @@ export interface IRequestOption {
 }
 
 export interface IRequestResponse<T extends DTO> {
-    data: InstanceType<T["responseDTOClass"]> | undefined,
+    data: InstanceType<T["responseDTOClass"]> | InstanceType<T["responseDTOClass"]>[] | undefined ,
     status?: number
 }
 
 @Service()
 export class HttpService {
 
-    private async buildHeader(o: IRequestOption) {
+    private buildHeader(o: IRequestOption) {
         const headers: Record<string, string> = {};
+
+        headers['content-type'] = "application/json";
         if (o.token) {
             headers.Authorization = "Bearer " + o.token;
         }
-        return {
-            headers: new Headers(headers)
-        }
+        return new Headers(headers)
+
     }
 
     public async request<T extends DTO>(dto: T, options?: IRequestOption): Promise<IRequestResponse<T>> {
         const o = {...{token: ""}, ...(options || {})};
-        const headers = await this.buildHeader(o);
+        const headers =  this.buildHeader(o);
         try {
            const rs = await axios.request({
                 method: dto.method,
@@ -40,9 +41,9 @@ export class HttpService {
                 data: plainToClass(dto.responseDTOClass, rs.data),
            }
         } catch (e) {
+            // TODO: handle error
             return {
                 data: undefined,
-                status: e.response.status
             }
         }
     }
