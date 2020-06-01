@@ -1,7 +1,6 @@
-import {Layout, Menu} from "antd";
+import {Layout, Menu, Icon} from "antd";
 import * as React from "react";
 import defaultStyles from "./masterpage.module.scss"
-import {DesktopOutlined, PieChartOutlined,} from "@ant-design/icons";
 import {ROUTE} from "../../route";
 import {HistoryService} from "../../core-services/history.service";
 import {Container} from "typedi";
@@ -32,10 +31,12 @@ export function MasterPageLayout(props: IProps): React.ReactElement<IProps> {
             <Layout>
                 <Sider>
                     <Menu defaultSelectedKeys={getSelectedMenu()} onSelect={({key}) => selectMenu(key as ROUTE)} theme="dark" mode="inline">
-                        <Menu.Item key={ROUTE.INDEX} icon={<PieChartOutlined/>}>
+                        <Menu.Item key={ROUTE.INDEX}>
+                            <Icon type="desktop" />
                             Index
                         </Menu.Item>
-                        <Menu.Item key={ROUTE.WEATHER_FORECAST} icon={<DesktopOutlined/>}>
+                        <Menu.Item key={ROUTE.WEATHER_FORECAST}>
+                            <Icon type="desktop" />
                             Forecast
                         </Menu.Item>
                     </Menu>

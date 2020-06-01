@@ -8,7 +8,6 @@ export enum METHOD {
 
 export abstract class DTO {
     public abstract paramsDTO: any;
-    public abstract queryDTO: any;
     public abstract bodyDTO: any;
     public abstract readonly url: string;
     public abstract readonly method: METHOD;
