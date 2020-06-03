@@ -5,3 +5,7 @@ export enum HTTP_HOST {
 export enum API_KEY {
     WEATHER = "ecee366e914875b378fa7e1eb3d27f3c"
 }
+
+export enum TIME_FORMAT {
+    DEFAULT= "dddd, MMMM Do YYYY"
+}
