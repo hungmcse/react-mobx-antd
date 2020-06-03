@@ -1,3 +1,5 @@
+@import '../../style-guide';
+
 .footer{
   border-top: 1px solid #e8e8e8;
 }
@@ -12,4 +14,8 @@
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 24px 16px 0;
   float: left;
+}
+
+.content {
+  @extend .p4;
 }

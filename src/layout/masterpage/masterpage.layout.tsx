@@ -30,18 +30,23 @@ export function MasterPageLayout(props: IProps): React.ReactElement<IProps> {
             </Header>
             <Layout>
                 <Sider>
-                    <Menu defaultSelectedKeys={getSelectedMenu()} onSelect={({key}) => selectMenu(key as ROUTE)} theme="dark" mode="inline">
+                    <Menu defaultSelectedKeys={getSelectedMenu()} onSelect={({key}) => selectMenu(key as ROUTE)}
+                          theme="dark" mode="inline">
                         <Menu.Item key={ROUTE.INDEX}>
-                            <Icon type="desktop" />
+                            <Icon type="desktop"/>
                             Index
                         </Menu.Item>
                         <Menu.Item key={ROUTE.WEATHER_FORECAST}>
-                            <Icon type="desktop" />
+                            <Icon type="desktop"/>
                             Forecast
                         </Menu.Item>
                     </Menu>
                 </Sider>
-                <Content>{props.children}</Content>
+                <Content>
+                    <div className={defaultStyles.content}>
+                        {props.children}
+                    </div>
+                </Content>
             </Layout>
             <Footer className={defaultStyles.footer}>HungMC Test Project</Footer>
         </Layout>

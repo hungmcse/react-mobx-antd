@@ -1,0 +1,38 @@
+$margin-base: 4px;
+$padding-base: 4px;
+$base: 18px;
+// Define default class
+@for $i from 1 through 4 {
+  .p#{$i} {
+    padding: $i * $padding-base
+  }
+  .pr#{$i} {
+    padding-right: $i * $padding-base
+  }
+  .pl#{$i} {
+    padding-left: $i * $padding-base
+  }
+  .pt#{$i} {
+    padding-top: $i * $padding-base
+  }
+  .pb#{$i} {
+    padding-bottom: $i * $padding-base
+  }
+
+  .m#{$i} {
+    margin: $i * $padding-base
+  }
+  .mr#{$i} {
+    margin-right: $i * $padding-base
+  }
+  .ml#{$i} {
+    margin-left: $i * $padding-base
+  }
+  .mt#{$i} {
+    margin-top: $i * $padding-base
+  }
+  .mb#{$i} {
+    margin-bottom: $i * $padding-base
+  }
+}
+
