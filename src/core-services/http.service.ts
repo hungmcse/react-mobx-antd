@@ -8,7 +8,7 @@ export interface IRequestOption {
 }
 
 export interface IRequestResponse<T extends DTO> {
-    data: InstanceType<T["responseDTOClass"]> | InstanceType<T["responseDTOClass"]>[] | undefined ,
+    data: InstanceType<T["responseDTOClass"]> | undefined ,
     status?: number
 }
 
@@ -23,7 +23,6 @@ export class HttpService {
             headers.Authorization = "Bearer " + o.token;
         }
         return new Headers(headers)
-
     }
 
     public async request<T extends DTO>(dto: T, options?: IRequestOption): Promise<IRequestResponse<T>> {
