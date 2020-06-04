@@ -25,5 +25,5 @@ export const  WEATHER_IMAGE_MAP: Record<WEATHER_TYPE, string> = {
     [WEATHER_TYPE.RAIN]: "rain-weather.svg",
     [WEATHER_TYPE.SNOW]: "snow-weather.svg",
     [WEATHER_TYPE.CLOUDS]: "clouds-weather.svg",
-    [WEATHER_TYPE.CLEAR]: "clears-weather.svg",
+    [WEATHER_TYPE.CLEAR]: "clear-weather.svg",
 }
