@@ -1,0 +1,28 @@
+@import '../../style-guide';
+
+.footer{
+  border-top: 1px solid #e8e8e8;
+  text-align: center;
+}
+
+.layout {
+  min-height: 100vh
+}
+
+.logo {
+  width: 120px;
+  height: 40px;
+  margin: 16px 24px 16px 0;
+  float: left;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-family: "serif";
+  font-weight: bold;
+}
+
+.content {
+  @extend .p4;
+}
