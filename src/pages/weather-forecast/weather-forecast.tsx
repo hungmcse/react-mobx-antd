@@ -1,14 +1,11 @@
 import * as React from "react";
 import {WeatherForecastModel} from "./weather-forecast.model";
 import {observer} from "mobx-react";
-import {AutoComplete, Card, Col, Row} from 'antd';
+import {AutoComplete, Col, Row} from 'antd';
 import {WeatherInfoModel} from "../../model/weather.model";
-import Meta from "antd/es/card/Meta";
 import {UseEffect} from "../../shared/effect"
-import {WEATHER_IMAGE_MAP} from "../../constant/weather.constant";
-import moment from "moment"
-import {TIME_FORMAT} from "../../constant/config.constant";
 import defaultStyles from "./weather-forecast.module.scss"
+import {WeatherCard} from "../../detail/weather/weather-card.component";
 
 @observer
 class WeatherForecast extends React.Component<any> {
@@ -18,18 +15,7 @@ class WeatherForecast extends React.Component<any> {
         return this.model.weatherInfo.map((item: WeatherInfoModel) =>
             (
                 <Col key={item.dt} sm={24} lg={11} xl={5}>
-                    <Card cover={<img alt="" src={`./svg/${WEATHER_IMAGE_MAP[item.weather[0].main]}`}/>}
-                    >
-                        <Meta
-                            title={
-                                (<>
-                                    <div>{item.weather[0].main}</div>
-                                    <div>{moment.unix(item.dt).format(TIME_FORMAT.DEFAULT)}</div>
-                                </>)
-                            }
-                            description={<p>{`Temperature: ${item.main.temp_min} ℃ ~ ${item.main.temp_max} ℃`}</p>}
-                        />
-                    </Card>
+                    <WeatherCard data={item}/>
                 </Col>
             )
         )
