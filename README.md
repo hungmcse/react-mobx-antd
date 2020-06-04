@@ -1,4 +1,4 @@
-This project is to practice ReactJS + Mobx and to try Antd
+This project is to practice ReactJS + Mobx and to try Antd <br/>
 This project is belongs to HungMC (hungmc.se@gmail.com)
 
 ## Available Scripts
