@@ -5,7 +5,7 @@ class WeatherForecast extends React.Component<any> {
     render(): React.ReactNode {
         return (
             <div>
-                Main
+                Welcome to project of HungMC
             </div>
         );
     }

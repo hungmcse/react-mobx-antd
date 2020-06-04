@@ -22,7 +22,7 @@ export class HttpService {
         if (o.token) {
             headers.Authorization = "Bearer " + o.token;
         }
-        return new Headers(headers)
+        return headers;
     }
 
     public async request<T extends DTO>(dto: T, options?: IRequestOption): Promise<IRequestResponse<T>> {
