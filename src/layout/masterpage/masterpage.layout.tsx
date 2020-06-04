@@ -16,29 +16,29 @@ const selectMenu = (route: ROUTE): void => {
     historyService.push(route);
 };
 
-const getSelectedMenu = (): ROUTE[] => {
+const getSelectedMenu = (route: ROUTE): ROUTE[] => {
     const historyService = Container.get(HistoryService);
     const item = Object.values(ROUTE).find((route) => historyService.history.location.pathname.startsWith(`/${route}`));
-    return [item ? item : ROUTE.INDEX];
+    return [item ? item : route];
 };
 
 export function MasterPageLayout(props: IProps): React.ReactElement<IProps> {
     return (
         <Layout className={defaultStyles.layout}>
             <Header>
-                <div className={defaultStyles.logo}/>
+                <div className={defaultStyles.logo}>HungMC</div>
             </Header>
             <Layout>
                 <Sider>
-                    <Menu defaultSelectedKeys={getSelectedMenu()} onSelect={({key}) => selectMenu(key as ROUTE)}
+                    <Menu defaultSelectedKeys={getSelectedMenu(ROUTE.WEATHER_FORECAST)} onSelect={({key}) => selectMenu(key as ROUTE)}
                           theme="dark" mode="inline">
-                        <Menu.Item key={ROUTE.INDEX}>
-                            <Icon type="desktop"/>
-                            Index
-                        </Menu.Item>
+                        {/*<Menu.Item key={ROUTE.INDEX}>*/}
+                        {/*    <Icon type="desktop"/>*/}
+                        {/*    Index*/}
+                        {/*</Menu.Item>*/}
                         <Menu.Item key={ROUTE.WEATHER_FORECAST}>
                             <Icon type="desktop"/>
-                            Forecast
+                            Weather
                         </Menu.Item>
                     </Menu>
                 </Sider>

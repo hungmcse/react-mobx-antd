@@ -1,7 +1,7 @@
 import * as React from "react";
 import {WeatherForecastModel} from "./weather-forecast.model";
 import {observer} from "mobx-react";
-import {AutoComplete, Col, Row} from 'antd';
+import {AutoComplete, Col, Row, Spin} from 'antd';
 import {WeatherInfoModel} from "../../model/weather.model";
 import {UseEffect} from "../../shared/effect"
 import defaultStyles from "./weather-forecast.module.scss"
@@ -32,7 +32,9 @@ class WeatherForecast extends React.Component<any> {
                     onSelect={this.model.selectCity}
                     onSearch={this.model.searchCity}
                     placeholder="input here"
+                    className={defaultStyles.citySearch}
                 />
+                {this.model.isLoading && (<Spin size="default" />)}
                 <div className={defaultStyles.weatherInfoContainer}>
                     <Row type={"flex"} justify={"center"} gutter={[20, 20]}>
                         {this.weatherCards}
