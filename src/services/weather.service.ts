@@ -14,7 +14,7 @@ export class WeatherService {
     public currentCity: WeatherLocationModel = new WeatherLocationModel();
     public cities: WeatherLocationModel[] = plainToClass(WeatherLocationModel, cityList as []);
 
-    // TODO: move to BE API
+    // TODO: move to BE API and remove public json file
     public searchCity(key: string): WeatherLocationModel[] | undefined {
         const rs = this.cities.filter((item)=> item.name.toLowerCase().includes(key.toLowerCase()));
         return rs.length > WEATHER_CONFIG.MAX_CITY_RECORDS ? rs.splice(0, WEATHER_CONFIG.MAX_CITY_RECORDS) : rs;

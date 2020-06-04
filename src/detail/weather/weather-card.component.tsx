@@ -13,6 +13,7 @@ export interface IProps {
 
 export function WeatherCard(props: IProps): React.ReactElement<IProps> | null {
     return props.data.weather && props.data.weather[0] && (
+        // TODO: Update webpack for image load and remove image on public folder
         <Card cover={<img alt="" src={`./svg/${WEATHER_IMAGE_MAP[props.data.weather[0].main]}`}/>}>
             <Meta
                 title={
