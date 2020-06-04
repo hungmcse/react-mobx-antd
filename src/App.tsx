@@ -1,8 +1,8 @@
-import React, {Suspense} from "react";
-import defaultStyle from "./App.module.scss";
+import * as React from "react";
 import {MasterPageLayout} from "./layout/masterpage/masterpage.layout";
 import {Redirect, Route, Switch} from "react-router";
 import {ROUTE} from "./route";
+import {Spin} from "antd";
 
 export function addPrefixUrl(path: string): string {
     const prefixUrl = "*/";
@@ -11,19 +11,19 @@ export function addPrefixUrl(path: string): string {
 
 function App() {
     return (
-        <div className={defaultStyle.App}>
+        <>
             <MasterPageLayout>
-                <Suspense fallback={<div>Loading...</div>}>
+                <React.Suspense fallback={<div><Spin size="large" /></div>}>
                     <Switch>
-                        <Route path={addPrefixUrl(ROUTE.INDEX)} exact={true}
-                               component={React.lazy(() => import("./pages/main/main"))}/>
+                        {/*<Route path={addPrefixUrl(ROUTE.INDEX)} exact={true}*/}
+                        {/*       component={React.lazy(() => import("./pages/main/main"))}/>*/}
                         <Route path={addPrefixUrl(ROUTE.WEATHER_FORECAST)} exact={true}
                                component={React.lazy(() => import("./pages/weather-forecast/weather-forecast"))}/>
-                        <Route path="*" component={() => <Redirect to={"/" + ROUTE.INDEX}/>}/>
+                        <Route path="*" component={() => <Redirect to={"/" + ROUTE.WEATHER_FORECAST}/>}/>
                     </Switch>
-                </Suspense>
+                </React.Suspense>
             </MasterPageLayout>
-        </div>
+        </>
     );
 }
 

@@ -1,4 +1,8 @@
 @import "../../style-guide";
 .weatherInfoContainer {
-  @extend .mt4;
+  @extend .mt5;
+}
+
+.citySearch {
+  @extend .mr4
 }

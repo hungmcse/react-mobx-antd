@@ -1,4 +1,4 @@
-import {action, observable, reaction} from "mobx";
+import {action, computed, observable, reaction} from "mobx";
 import {Container} from "typedi";
 import {WeatherService} from "../../services/weather.service";
 import {WeatherInfoModel, WeatherLocationModel} from "../../model/weather.model";
@@ -32,6 +32,11 @@ export class WeatherForecastModel {
         }
     };
 
+    @computed
+    public get isLoading(): boolean {
+        return this.weatherService.lazyGetCityWeather.pending
+    }
+
     @action.bound
     private setOption(data: WeatherLocationModel[] | undefined): void {
         if (data) {
@@ -63,6 +68,8 @@ export class WeatherForecastModel {
     }
 
     public searchCity = debounce((e: SelectValue) => {
-        this.getWeatherLocation(e as string);
+        if (e) {
+            this.getWeatherLocation(e as string);
+        }
     }, 1000);
 }

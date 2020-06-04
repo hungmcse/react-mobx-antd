@@ -1,8 +1,9 @@
 $margin-base: 4px;
 $padding-base: 4px;
 $base: 18px;
+$font: 16px;
 // Define default class
-@for $i from 1 through 4 {
+@for $i from 1 through 5 {
   .p#{$i} {
     padding: $i * $padding-base
   }
